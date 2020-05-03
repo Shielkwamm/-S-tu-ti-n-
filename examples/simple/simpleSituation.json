@@ -1,0 +1,26 @@
+{
+  "situation": {
+    "name": "Metal Gear Solid",
+    "text": "Did you say nerd?",
+    "slots": [{
+      "left": "LiquidSnake"
+    },
+    {
+      "right": "SolidSnake"
+    }]
+  },
+  "actors": [
+    {
+      "slot": "left",
+      "name": "LiquidSnake",
+      "mood": "resting",
+      "_mood": "zZz"
+    },
+    {
+      "slot": "right",
+      "name": "SolidSnake",
+      "mood": "active",
+      "_mood": "||"
+    }
+  ]
+}
