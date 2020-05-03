@@ -1,0 +1,35 @@
+{
+  "zork": {
+    "name": "Metal Gear Solid",
+    "text": "Did you say nerd?",
+    "slots": [{
+      "left": "LiquidSnake"
+    },
+    {
+      "right": "SolidSnake"
+    }],
+    "actors": [
+        {
+          "slot": "left",
+          "name": "LiquidSnake",
+          "mood": "active",
+          "_mood": "||"
+        },
+        {
+          "slot": "right",
+          "name": "SolidSnake",
+          "mood": "active",
+          "_mood": "||"
+        }
+      ]
+  },
+  "bwam": {
+      "label": "Japanese Shoutout",
+      "name": "oldSChoolGames"
+  },
+  "_sh_": {
+      "label": "Did you say nerd?",
+      "name": "doThis",
+      "text": ["First we do this", "Then we do this", "And after that we do this"]
+  }
+}

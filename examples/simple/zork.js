@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"sampleSituation_atlas_", frames: [[0,0,633,323],[280,496,133,128],[454,325,128,176],[0,325,278,248],[280,325,172,169]]}
+		{name:"zork_atlas_", frames: [[0,0,633,323],[280,496,133,128],[454,325,128,176],[0,325,278,248],[280,325,172,169]]}
 ];
 
 
@@ -12,35 +12,35 @@ lib.ssMetadata = [
 
 
 (lib.b0VcVlz = function() {
-	this.initialize(ss["sampleSituation_atlas_"]);
+	this.initialize(ss["zork_atlas_"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedTexturedBitmap_5 = function() {
-	this.initialize(ss["sampleSituation_atlas_"]);
+(lib.CachedTexturedBitmap_13 = function() {
+	this.initialize(ss["zork_atlas_"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedTexturedBitmap_6 = function() {
-	this.initialize(ss["sampleSituation_atlas_"]);
+(lib.CachedTexturedBitmap_14 = function() {
+	this.initialize(ss["zork_atlas_"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedTexturedBitmap_7 = function() {
-	this.initialize(ss["sampleSituation_atlas_"]);
+(lib.CachedTexturedBitmap_15 = function() {
+	this.initialize(ss["zork_atlas_"]);
 	this.gotoAndStop(3);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedTexturedBitmap_8 = function() {
-	this.initialize(ss["sampleSituation_atlas_"]);
+(lib.CachedTexturedBitmap_16 = function() {
+	this.initialize(ss["zork_atlas_"]);
 	this.gotoAndStop(4);
 }).prototype = p = new cjs.Sprite();
 
@@ -58,19 +58,19 @@ lib.ssMetadata = [
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(4));
 
 	// Layer_3
-	this.instance = new lib.CachedTexturedBitmap_5();
+	this.instance = new lib.CachedTexturedBitmap_13();
 	this.instance.parent = this;
 	this.instance.setTransform(0,-8.4,0.5,0.5);
 
-	this.instance_1 = new lib.CachedTexturedBitmap_6();
+	this.instance_1 = new lib.CachedTexturedBitmap_14();
 	this.instance_1.parent = this;
 	this.instance_1.setTransform(-8.05,-18.7,0.5,0.5);
 
-	this.instance_2 = new lib.CachedTexturedBitmap_7();
+	this.instance_2 = new lib.CachedTexturedBitmap_15();
 	this.instance_2.parent = this;
 	this.instance_2.setTransform(-31.95,-40.4,0.5,0.5);
 
-	this.instance_3 = new lib.CachedTexturedBitmap_8();
+	this.instance_3 = new lib.CachedTexturedBitmap_16();
 	this.instance_3.parent = this;
 	this.instance_3.setTransform(-12.9,-10.75,0.5,0.5);
 
@@ -92,19 +92,19 @@ p.nominalBounds = new cjs.Rectangle(-31.9,-40.4,139,124);
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(4));
 
 	// Layer_1
-	this.instance = new lib.CachedTexturedBitmap_5();
+	this.instance = new lib.CachedTexturedBitmap_13();
 	this.instance.parent = this;
 	this.instance.setTransform(0,-8.4,0.5,0.5);
 
-	this.instance_1 = new lib.CachedTexturedBitmap_6();
+	this.instance_1 = new lib.CachedTexturedBitmap_14();
 	this.instance_1.parent = this;
 	this.instance_1.setTransform(-8.05,-18.7,0.5,0.5);
 
-	this.instance_2 = new lib.CachedTexturedBitmap_7();
+	this.instance_2 = new lib.CachedTexturedBitmap_15();
 	this.instance_2.parent = this;
 	this.instance_2.setTransform(-31.95,-40.4,0.5,0.5);
 
-	this.instance_3 = new lib.CachedTexturedBitmap_8();
+	this.instance_3 = new lib.CachedTexturedBitmap_16();
 	this.instance_3.parent = this;
 	this.instance_3.setTransform(-12.9,-10.75,0.5,0.5);
 
@@ -115,7 +115,7 @@ p.nominalBounds = new cjs.Rectangle(-31.9,-40.4,139,124);
 
 
 // stage content:
-(lib.sampleSituation = function(mode,startPosition,loop) {
+(lib.zork = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	// timeline functions:
@@ -140,7 +140,7 @@ p.nominalBounds = new cjs.Rectangle(-31.9,-40.4,139,124);
 		
 		function shopLocal() {	
 			var xmlhttpLocal = new XMLHttpRequest();
-			var localUrl = "simpleSituation.json";
+			var localUrl = "sampleSituation.json";
 			xmlhttpLocal.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
 					var myArr = JSON.parse(this.responseText);
@@ -153,8 +153,8 @@ p.nominalBounds = new cjs.Rectangle(-31.9,-40.4,139,124);
 		}
 		
 		function processSituation(json) {
-			r.situationText.text = json.situation.text;
-			var actors = json.actors;
+			r.situationText.text = json.zork.situation.text;
+			var actors = json.zork.actors;
 			for(var i=0;i<actors.length;i++) {
 				r[actors[i].slot].gotoAndStop(actors[i].mood);
 			}
@@ -207,7 +207,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/sampleSituation_atlas_.png", id:"sampleSituation_atlas_"}
+		{src:"images/zork_atlas_.png?1588490689109", id:"zork_atlas_"}
 	],
 	preloads: []
 };
