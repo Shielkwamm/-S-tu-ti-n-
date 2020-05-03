@@ -13,8 +13,8 @@
     {
       "slot": "left",
       "name": "LiquidSnake",
-      "mood": "resting",
-      "_mood": "zZz"
+      "mood": "active",
+      "_mood": "||"
     },
     {
       "slot": "right",
