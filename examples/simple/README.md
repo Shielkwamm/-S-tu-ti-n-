@@ -1,4 +1,4 @@
-# Sample
+# Adobe Animate Sample Project
 
 This is just a quick sample showing possible data construction.
 
