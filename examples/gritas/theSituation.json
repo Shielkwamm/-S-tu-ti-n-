@@ -14,9 +14,9 @@
         "name": "papaya",
         "keys": [
             {"key": "ArrowUp", "frame": "o"},
-            {"key": "ArrowUp", "frame": "O"},
-            {"key": "ArrowUp", "frame": "Ó"},
-            {"key": "ArrowUp", "frame": "ó"},
+            {"key": "ArrowDown", "frame": "O"},
+            {"key": "ArrowLeft", "frame": "Ó"},
+            {"key": "ArrowRight", "frame": "ó"},
             {"key": ".", "frame": "e1"},
             {"key": ",", "frame": "e2"}
         ]
