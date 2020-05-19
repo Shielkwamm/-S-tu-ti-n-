@@ -8697,7 +8697,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Team_atlas_.png?1589863364439", id:"Team_atlas_"}
+		{src:"images/Team_atlas_.png", id:"Team_atlas_"}
 	],
 	preloads: []
 };
