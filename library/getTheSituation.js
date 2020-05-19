@@ -1,6 +1,6 @@
 var inited = false;
 
-Shielkwamm.processTheSituation = function(situationR, jsonUrl, theSituation) {
+theSituation.processTheSituation = function(situationR, jsonUrl, theSituation) {
 	if(!situationR) {
 		alert("You didn't pass in root and it makes me very upset.");
 		return;

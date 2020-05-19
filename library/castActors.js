@@ -1,4 +1,4 @@
-Shielkwamm.castActors = function(situationR, castingCall) {
+theSituation.castActors = function(situationR, castingCall) {
     var actors = [];
 	for (var i = 0; i < castingCall.length; i++) {
 		var actor = {};

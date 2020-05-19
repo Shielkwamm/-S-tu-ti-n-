@@ -25,11 +25,10 @@ lib.ssMetadata = [];
 		stop();
 		
 		function processTheSituation(theSituation) {
-			//alert(theSituation);
 			alert(JSON.stringify(theSituation));
 		}
 		
-		Shielkwamm.processTheSituation(this, "exampleSituation.json", processTheSituation);
+		theSituation.processTheSituation(this, "exampleSituation.json", processTheSituation);
 	}
 
 	// actions tween:

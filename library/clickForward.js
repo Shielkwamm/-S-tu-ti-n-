@@ -1,4 +1,4 @@
-Shielkwamm.clickNext = function(situationR, actors) {
+theSituation.clickNext = function(situationR, actors) {
     for(var i = 0; i < actors.length; i++) {
         var actor = actors[i];
 

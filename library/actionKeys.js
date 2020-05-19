@@ -1,4 +1,4 @@
-Shielkwamm.actionKeys = function(situationR, actors) {
+theSituation.actionKeys = function(situationR, actors) {
     for(var i = 0; i < actors.length; i++) {  
         actors[i].keysDown = [];
     }
