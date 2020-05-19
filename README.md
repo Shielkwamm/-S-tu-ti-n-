@@ -4,4 +4,8 @@
 #### As always if you have suggestions
 ##### Let me know
 
-[Animate Example](examples/simple/README.md)
+[animate scripts](animate/README.md)
+
+[illustrator scripts](illustrator/README.md)
+
+[animate library](library/README.md)
