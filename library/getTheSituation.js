@@ -1,6 +1,6 @@
-var inited = false;
+theSituation.inited = false;
 
-theSituation.processTheSituation = function(situationR, jsonUrl, theSituation) {
+theSituation.processTheSituation = function(situationR, jsonUrl, theSituationCallback) {
 	if(!situationR) {
 		alert("You didn't pass in root and it makes me very upset.");
 		return;
@@ -9,27 +9,27 @@ theSituation.processTheSituation = function(situationR, jsonUrl, theSituation) {
 		alert(":)");
 		return;
 	}
-	if(!theSituation) {
+	if(!theSituationCallback) {
 		alert("Did you forget to pass in theSituation?  Did you not read the △?  Do you not trust me?");
 		return;
 	}
-	if(!inited) {
-		situationInit(situationR, jsonUrl, theSituation);
+	if(!theSituation.inited) {
+		situationInit(situationR, jsonUrl, theSituationCallback);
 	}
 }
 
-function situationInit(situationR, jsonUrl, theSituation) {
+function situationInit(situationR, jsonUrl, theSituationCallback) {
 	var xmlhttpRemote = new XMLHttpRequest();
 	xmlhttpRemote.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			var json = JSON.parse(this.responseText);
-			if(!inited) {
-				inited = true;
-				theSituation(json);
+			if(!theSituation.inited) {
+				theSituation.inited = true;
+				theSituationCallback(json);
 			}
 		}
 		else if(this.status == 404) {
-			inited = "error";
+			theSituation.inited = "error";
 			alert("Did you not pass in a url I can === actually === use?");
 		}
 	};
