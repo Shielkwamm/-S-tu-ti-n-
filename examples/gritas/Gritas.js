@@ -11,21 +11,21 @@ lib.ssMetadata = [
 
 
 
-(lib.CachedBmp_159 = function() {
+(lib.CachedBmp_155 = function() {
 	this.initialize(ss["Gritas_atlas_"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedBmp_158 = function() {
+(lib.CachedBmp_154 = function() {
 	this.initialize(ss["Gritas_atlas_"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedBmp_157 = function() {
+(lib.CachedBmp_153 = function() {
 	this.initialize(ss["Gritas_atlas_"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
@@ -206,7 +206,7 @@ p.nominalBounds = new cjs.Rectangle(-36,-80.9,174,174);
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
 	// Layer_1
-	this.instance = new lib.CachedBmp_159();
+	this.instance = new lib.CachedBmp_155();
 	this.instance.setTransform(257.25,19,0.5,0.5);
 
 	this.react = new lib.React();
@@ -218,10 +218,10 @@ p.nominalBounds = new cjs.Rectangle(-36,-80.9,174,174);
 	this.mango = new lib.Mango();
 	this.mango.setTransform(214.05,364.85,1,1,0,0,0,126.3,67);
 
-	this.instance_1 = new lib.CachedBmp_158();
+	this.instance_1 = new lib.CachedBmp_154();
 	this.instance_1.setTransform(414.5,394.05,0.5,0.5);
 
-	this.instance_2 = new lib.CachedBmp_157();
+	this.instance_2 = new lib.CachedBmp_153();
 	this.instance_2.setTransform(83,398.3,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_2},{t:this.instance_1},{t:this.mango},{t:this.papaya},{t:this.react},{t:this.instance}]}).wait(1));
@@ -239,7 +239,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Gritas_atlas_.png?1589860041802", id:"Gritas_atlas_"}
+		{src:"images/Gritas_atlas_.png", id:"Gritas_atlas_"}
 	],
 	preloads: []
 };
