@@ -13,6 +13,7 @@
     }, {
         "name": "papaya",
         "keys": [
+            {"key": "p", "frame": "0"},
             {"key": "ArrowUp", "frame": "o"},
             {"key": "ArrowDown", "frame": "O"},
             {"key": "ArrowLeft", "frame": "Ó"},

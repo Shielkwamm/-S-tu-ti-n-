@@ -2,113 +2,52 @@
 
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
-lib.ssMetadata = [
-		{name:"_sh__atlas_", frames: [[514,0,321,462],[0,0,512,512]]}
-];
+lib.ssMetadata = [];
 
 
 // symbols:
 
 
 
-(lib.CachedBmp_1 = function() {
-	this.initialize(ss["_sh__atlas_"]);
-	this.gotoAndStop(0);
-}).prototype = p = new cjs.Sprite();
-
-
-
-(lib.k2dafsoa7ohz = function() {
-	this.initialize(ss["_sh__atlas_"]);
-	this.gotoAndStop(1);
-}).prototype = p = new cjs.Sprite();
-
-
-
 // stage content:
-(lib._sh_ = function(mode,startPosition,loop) {
-	this.initialize(mode,startPosition,loop,{doThis:1});
+(lib.example = function(mode,startPosition,loop) {
+	this.initialize(mode,startPosition,loop,{});
 
+	this.isSingleFrame = false;
 	// timeline functions:
 	this.frame_0 = function() {
-		this.stop();
-		var xmlhttpRemote = new XMLHttpRequest();
-		var remoteUrl = "https://pastebin.com/raw/wqE6C0jp";
-		var r = this;
+		if(this.isSingleFrame) {
+			return;
+		}
+		if(this.totalFrames == 1) {
+			this.isSingleFrame = true;
+		}
+		stop();
 		
-		xmlhttpRemote.onreadystatechange = function() {
-		    if (this.readyState == 4 && this.status == 200) {
-		        var myArr = JSON.parse(this.responseText);
-		        var json = JSON.parse(this.responseText);
-				processSituation(json);
-		    }
-			else {
-				shopLocal()
-			}
-		};
-		xmlhttpRemote.open("GET", remoteUrl, true);
-		xmlhttpRemote.send();
-		
-		function shopLocal() {	
-			var xmlhttpLocal = new XMLHttpRequest();
-			var localUrl = "simple.json";
-			xmlhttpLocal.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 200) {
-					var myArr = JSON.parse(this.responseText);
-					var json = JSON.parse(this.responseText);
-					processSituation(json);
-				}
-			};
-			xmlhttpLocal.open("GET", localUrl, true);
-			xmlhttpLocal.send();
+		function processTheSituation(theSituation) {
+			//alert(theSituation);
+			alert(JSON.stringify(theSituation));
 		}
 		
-		function processSituation(json) {
-			r.gotoAndStop(json._sh_.name);
-		}
+		Shielkwamm.processTheSituation(this, "exampleSituation.json", processTheSituation);
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(2));
-
-	// text
-	this._sh_text = new cjs.Text("We need to do this.", "25px 'Tahoma'", "#82B0A4");
-	this._sh_text.name = "_sh_text";
-	this._sh_text.lineHeight = 32;
-	this._sh_text.lineWidth = 240;
-	this._sh_text.parent = this;
-	this._sh_text.setTransform(338.5,222.75);
-
-	this._sh_text_1 = new cjs.Text("We need to do this.", "25px 'Tahoma'", "#82B0A4");
-	this._sh_text_1.name = "_sh_text_1";
-	this._sh_text_1.lineHeight = 32;
-	this._sh_text_1.lineWidth = 240;
-	this._sh_text_1.parent = this;
-	this._sh_text_1.setTransform(347.55,6.5);
-
-	this.instance = new lib.k2dafsoa7ohz();
-	this.instance.setTransform(8,5,0.5859,0.5859);
-
-	this.instance_1 = new lib.CachedBmp_1();
-	this.instance_1.setTransform(310.9,85.25,0.5,0.5);
-
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[]}).to({state:[{t:this.instance_1},{t:this.instance},{t:this._sh_text_1},{t:this._sh_text}]},1).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
 	this._renderFirstFrame();
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(0,0,589.6,316.3);
+p.nominalBounds = new cjs.Rectangle(0,0,0,0);
 // library properties:
 lib.properties = {
-	id: 'D69D2C9ED3476A499E6D22D95764C788',
-	width: 633,
-	height: 323,
-	fps: 30,
+	id: 'FDA99EDD5876B840A21CF305F7E08ECB',
+	width: 550,
+	height: 400,
+	fps: 24,
 	color: "#FFFFFF",
 	opacity: 1.00,
-	manifest: [
-		{src:"images/_sh__atlas_.png?1589836534403", id:"_sh__atlas_"}
-	],
+	manifest: [],
 	preloads: []
 };
 
@@ -145,7 +84,7 @@ an.bootstrapCallback=function(fnCallback) {
 };
 
 an.compositions = an.compositions || {};
-an.compositions['D69D2C9ED3476A499E6D22D95764C788'] = {
+an.compositions['FDA99EDD5876B840A21CF305F7E08ECB'] = {
 	getStage: function() { return exportRoot.stage; },
 	getLibrary: function() { return lib; },
 	getSpriteSheet: function() { return ss; },

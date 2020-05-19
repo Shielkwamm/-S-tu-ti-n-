@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"zork_atlas_", frames: [[0,0,633,323],[280,496,133,128],[454,325,128,176],[0,325,278,248],[280,325,172,169]]}
+		{name:"zork_atlas_", frames: [[280,325,172,169],[0,325,278,248],[454,325,128,176],[280,496,133,128],[0,0,633,323]]}
 ];
 
 
@@ -11,35 +11,35 @@ lib.ssMetadata = [
 
 
 
-(lib.b0VcVlz = function() {
+(lib.CachedBmp_8 = function() {
 	this.initialize(ss["zork_atlas_"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedTexturedBitmap_13 = function() {
+(lib.CachedBmp_7 = function() {
 	this.initialize(ss["zork_atlas_"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedTexturedBitmap_14 = function() {
+(lib.CachedBmp_6 = function() {
 	this.initialize(ss["zork_atlas_"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedTexturedBitmap_15 = function() {
+(lib.CachedBmp_5 = function() {
 	this.initialize(ss["zork_atlas_"]);
 	this.gotoAndStop(3);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedTexturedBitmap_16 = function() {
+(lib.b0VcVlz = function() {
 	this.initialize(ss["zork_atlas_"]);
 	this.gotoAndStop(4);
 }).prototype = p = new cjs.Sprite();
@@ -58,23 +58,21 @@ lib.ssMetadata = [
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(4));
 
 	// Layer_3
-	this.instance = new lib.CachedTexturedBitmap_13();
-	this.instance.parent = this;
+	this.instance = new lib.CachedBmp_5();
 	this.instance.setTransform(0,-8.4,0.5,0.5);
 
-	this.instance_1 = new lib.CachedTexturedBitmap_14();
-	this.instance_1.parent = this;
+	this.instance_1 = new lib.CachedBmp_6();
 	this.instance_1.setTransform(-8.05,-18.7,0.5,0.5);
 
-	this.instance_2 = new lib.CachedTexturedBitmap_15();
-	this.instance_2.parent = this;
+	this.instance_2 = new lib.CachedBmp_7();
 	this.instance_2.setTransform(-31.95,-40.4,0.5,0.5);
 
-	this.instance_3 = new lib.CachedTexturedBitmap_16();
-	this.instance_3.parent = this;
+	this.instance_3 = new lib.CachedBmp_8();
 	this.instance_3.setTransform(-12.9,-10.75,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance}]}).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_2}]},1).to({state:[{t:this.instance_3}]},1).wait(1));
+
+	this._renderFirstFrame();
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-31.9,-40.4,139,124);
@@ -92,23 +90,21 @@ p.nominalBounds = new cjs.Rectangle(-31.9,-40.4,139,124);
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(4));
 
 	// Layer_1
-	this.instance = new lib.CachedTexturedBitmap_13();
-	this.instance.parent = this;
+	this.instance = new lib.CachedBmp_5();
 	this.instance.setTransform(0,-8.4,0.5,0.5);
 
-	this.instance_1 = new lib.CachedTexturedBitmap_14();
-	this.instance_1.parent = this;
+	this.instance_1 = new lib.CachedBmp_6();
 	this.instance_1.setTransform(-8.05,-18.7,0.5,0.5);
 
-	this.instance_2 = new lib.CachedTexturedBitmap_15();
-	this.instance_2.parent = this;
+	this.instance_2 = new lib.CachedBmp_7();
 	this.instance_2.setTransform(-31.95,-40.4,0.5,0.5);
 
-	this.instance_3 = new lib.CachedTexturedBitmap_16();
-	this.instance_3.parent = this;
+	this.instance_3 = new lib.CachedBmp_8();
 	this.instance_3.setTransform(-12.9,-10.75,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance}]}).to({state:[{t:this.instance_1}]},1).to({state:[{t:this.instance_2}]},1).to({state:[{t:this.instance_3}]},1).wait(1));
+
+	this._renderFirstFrame();
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(-31.9,-40.4,139,124);
@@ -118,8 +114,15 @@ p.nominalBounds = new cjs.Rectangle(-31.9,-40.4,139,124);
 (lib.zork = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
+	this.isSingleFrame = false;
 	// timeline functions:
 	this.frame_0 = function() {
+		if(this.isSingleFrame) {
+			return;
+		}
+		if(this.totalFrames == 1) {
+			this.isSingleFrame = true;
+		}
 		this.stop();
 		var xmlhttpRemote = new XMLHttpRequest();
 		var remoteUrl = "https://pastebin.com/raw/wqE6C0jp";
@@ -146,6 +149,7 @@ p.nominalBounds = new cjs.Rectangle(-31.9,-40.4,139,124);
 					var myArr = JSON.parse(this.responseText);
 					var json = JSON.parse(this.responseText);
 					processSituation(json);
+					alert("yo");
 				}
 			};
 			xmlhttpLocal.open("GET", localUrl, true);
@@ -176,25 +180,22 @@ p.nominalBounds = new cjs.Rectangle(-31.9,-40.4,139,124);
 
 	// rightLoader
 	this.right = new lib.SolidSnake();
-	this.right.name = "right";
-	this.right.parent = this;
 	this.right.setTransform(524.4,100.4,1,1,0,0,0,33.2,23.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.right).wait(1));
 
 	// leftLoader
 	this.left = new lib.LiquidSnake();
-	this.left.name = "left";
-	this.left.parent = this;
 	this.left.setTransform(117.3,98.4,1,1,0,0,0,33.2,23.5);
 
 	this.timeline.addTween(cjs.Tween.get(this.left).wait(1));
 
 	// background
 	this.instance = new lib.b0VcVlz();
-	this.instance.parent = this;
 
 	this.timeline.addTween(cjs.Tween.get(this.instance).wait(1));
+
+	this._renderFirstFrame();
 
 }).prototype = p = new cjs.MovieClip();
 p.nominalBounds = new cjs.Rectangle(316.5,161.5,316.5,161.5);
@@ -207,7 +208,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/zork_atlas_.png?1588490689109", id:"zork_atlas_"}
+		{src:"images/zork_atlas_.png?1589836238972", id:"zork_atlas_"}
 	],
 	preloads: []
 };
@@ -218,7 +219,7 @@ lib.properties = {
 
 (lib.Stage = function(canvas) {
 	createjs.Stage.call(this, canvas);
-}).prototype = p = new createjs.Stage();
+}).prototype = p = new createjs.StageGL();
 
 p.setAutoPlay = function(autoPlay) {
 	this.tickEnabled = autoPlay;
@@ -246,7 +247,7 @@ an.bootstrapCallback=function(fnCallback) {
 
 an.compositions = an.compositions || {};
 an.compositions['D69D2C9ED3476A499E6D22D95764C788'] = {
-	getStage: function() { return exportRoot.getStage(); },
+	getStage: function() { return exportRoot.stage; },
 	getLibrary: function() { return lib; },
 	getSpriteSheet: function() { return ss; },
 	getImages: function() { return img; }
