@@ -2768,8 +2768,15 @@ p.nominalBounds = new cjs.Rectangle(-433,-147.2,1861.7,704.2);
 (lib.Team = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
+	this.isSingleFrame = false;
 	// timeline functions:
-	this.frame_1 = function() {
+	this.frame_0 = function() {
+		if(this.isSingleFrame) {
+			return;
+		}
+		if(this.totalFrames == 1) {
+			this.isSingleFrame = true;
+		}
 		stop();
 		var r = this;
 		var actors;
@@ -2784,7 +2791,7 @@ p.nominalBounds = new cjs.Rectangle(-433,-147.2,1861.7,704.2);
 	}
 
 	// actions tween:
-	this.timeline.addTween(cjs.Tween.get(this).wait(1).call(this.frame_1).wait(1));
+	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
 	// Layer_1
 	this.player1 = new lib.Playa1();
@@ -2793,13 +2800,13 @@ p.nominalBounds = new cjs.Rectangle(-433,-147.2,1861.7,704.2);
 	this.player2 = new lib.Playa2();
 	this.player2.setTransform(504.3,384.95,1,1,0,0,0,54.5,-3.2);
 
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.player2},{t:this.player1}]}).wait(2));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.player2},{t:this.player1}]}).wait(1));
 
 	// Layer_2
 	this.react = new lib.React();
 	this.react.setTransform(318.95,217,1,1,0,0,0,316.9,160.9);
 
-	this.timeline.addTween(cjs.Tween.get(this.react).wait(2));
+	this.timeline.addTween(cjs.Tween.get(this.react).wait(1));
 
 	this._renderFirstFrame();
 
@@ -2814,11 +2821,11 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Team_atlas_.png?1589861691791", id:"Team_atlas_"},
-		{src:"images/Team_atlas_2.png?1589861691792", id:"Team_atlas_2"},
-		{src:"images/Team_atlas_3.png?1589861691792", id:"Team_atlas_3"},
-		{src:"images/Team_atlas_4.png?1589861691793", id:"Team_atlas_4"},
-		{src:"images/Team_atlas_5.png?1589861691795", id:"Team_atlas_5"}
+		{src:"images/Team_atlas_.png", id:"Team_atlas_"},
+		{src:"images/Team_atlas_2.png", id:"Team_atlas_2"},
+		{src:"images/Team_atlas_3.png", id:"Team_atlas_3"},
+		{src:"images/Team_atlas_4.png", id:"Team_atlas_4"},
+		{src:"images/Team_atlas_5.png", id:"Team_atlas_5"}
 	],
 	preloads: []
 };
