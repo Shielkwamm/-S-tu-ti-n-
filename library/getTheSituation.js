@@ -1,12 +1,8 @@
 theSituation.inited = false;
 
-theSituation.processTheSituation = function(situationR, jsonUrl, theSituationCallback) {
+theSituation.processTheSituation = function(situationR, theSituationCallback) {
 	if(!situationR) {
 		alert("You didn't pass in root and it makes me very upset.");
-		return;
-	}
-	if(!jsonUrl) {
-		alert(":)");
 		return;
 	}
 	if(!theSituationCallback) {
@@ -14,11 +10,13 @@ theSituation.processTheSituation = function(situationR, jsonUrl, theSituationCal
 		return;
 	}
 	if(!theSituation.inited) {
-		situationInit(situationR, jsonUrl, theSituationCallback);
+		situationInit(situationR, theSituationCallback);
 	}
 }
 
-function situationInit(situationR, jsonUrl, theSituationCallback) {
+function situationInit(situationR, theSituationCallback) {
+	var cacheCrash = Math.floor(Math.random() * 100);
+	var jsonUrl =  "theSituation.json?" + cacheCrash;
 	var xmlhttpRemote = new XMLHttpRequest();
 	xmlhttpRemote.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {

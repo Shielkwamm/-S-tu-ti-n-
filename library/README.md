@@ -5,6 +5,7 @@
 * main.js
 * clickForward.js
 * actionKeys.js
+* actorsGames.js
 * castActors.js
 * getTheSituation.js
 
@@ -22,8 +23,7 @@ var actors;
 
 function mySituation(theSituationJSON) {
 	actors = theSituation.castActors(r, theSituationJSON.actors);
-	theSituation.clickNext(r, actors);
-	theSituation.actionKeys(r, actors);
+	actors = theSituation.actorsGames(r, actors);
 }
 
 theSituation.processTheSituation(this, "mySituation.json", mySituation);
