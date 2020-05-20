@@ -8657,13 +8657,12 @@ p.nominalBounds = new cjs.Rectangle(-433,-147.2,1861.9,704.3);
 		var r = this;
 		var actors;
 		
-		function teamSituation(theSituation) {
-			actors = Shielkwamm.castActors(r, theSituation.actors);
-			Shielkwamm.clickNext(r, actors);
-			Shielkwamm.actionKeys(r, actors);
+		function teamSituation(theSituationJSON) {
+			actors = theSituation.castActors(r, theSituationJSON.actors);
+			actors = theSituation.actorsGames(r, actors);
 		}
 		
-		Shielkwamm.processTheSituation(this, "teamSituation.json", teamSituation);
+		theSituation.processTheSituation(r, teamSituation);
 	}
 
 	// actions tween:
@@ -8697,7 +8696,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Team_atlas_.png", id:"Team_atlas_"}
+		{src:"images/Team_atlas_.png?1590005149134", id:"Team_atlas_"}
 	],
 	preloads: []
 };

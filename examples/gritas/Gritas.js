@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"Gritas_atlas_", frames: [[210,875,154,68],[773,816,208,68],[0,875,208,68],[0,512,549,361],[551,386,220,494],[0,0,425,510],[773,386,225,225],[773,613,210,201],[427,0,512,384]]}
+		{name:"gritas_atlas_", frames: [[210,875,154,68],[773,816,208,68],[0,875,208,68],[0,512,549,361],[551,386,220,494],[0,0,425,510],[773,386,225,225],[773,613,210,201],[427,0,512,384]]}
 ];
 
 
@@ -11,64 +11,64 @@ lib.ssMetadata = [
 
 
 
-(lib.CachedBmp_155 = function() {
-	this.initialize(ss["Gritas_atlas_"]);
+(lib.CachedBmp_3 = function() {
+	this.initialize(ss["gritas_atlas_"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedBmp_154 = function() {
-	this.initialize(ss["Gritas_atlas_"]);
+(lib.CachedBmp_2 = function() {
+	this.initialize(ss["gritas_atlas_"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedBmp_153 = function() {
-	this.initialize(ss["Gritas_atlas_"]);
+(lib.CachedBmp_1 = function() {
+	this.initialize(ss["gritas_atlas_"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib._18ts49 = function() {
-	this.initialize(ss["Gritas_atlas_"]);
+	this.initialize(ss["gritas_atlas_"]);
 	this.gotoAndStop(3);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib._220pxLady_Liberty_under_a_blue_sky_cropped = function() {
-	this.initialize(ss["Gritas_atlas_"]);
+	this.initialize(ss["gritas_atlas_"]);
 	this.gotoAndStop(4);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib._71cL6MMG8zL_AC_SX425_ = function() {
-	this.initialize(ss["Gritas_atlas_"]);
+	this.initialize(ss["gritas_atlas_"]);
 	this.gotoAndStop(5);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.download = function() {
-	this.initialize(ss["Gritas_atlas_"]);
+	this.initialize(ss["gritas_atlas_"]);
 	this.gotoAndStop(6);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.papayas210x201 = function() {
-	this.initialize(ss["Gritas_atlas_"]);
+	this.initialize(ss["gritas_atlas_"]);
 	this.gotoAndStop(7);
 }).prototype = p = new cjs.Sprite();
 
 
 
 (lib.unnamed = function() {
-	this.initialize(ss["Gritas_atlas_"]);
+	this.initialize(ss["gritas_atlas_"]);
 	this.gotoAndStop(8);
 }).prototype = p = new cjs.Sprite();
 
@@ -173,7 +173,7 @@ p.nominalBounds = new cjs.Rectangle(-36,-80.9,174,174);
 
 
 // stage content:
-(lib.Gritas = function(mode,startPosition,loop) {
+(lib.gritas = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});
 
 	this.isSingleFrame = false;
@@ -189,15 +189,12 @@ p.nominalBounds = new cjs.Rectangle(-36,-80.9,174,174);
 		var r = this;
 		var actors;
 		
-		function gritasSituation(theSituation) {
-			actors = Shielkwamm.castActors(r, theSituation.actors);
-			Shielkwamm.clickNext(r, actors);
-			Shielkwamm.actionKeys(r, actors);
+		function gritasSituation(theSituationJSON) {
+			actors = theSituation.castActors(r, theSituationJSON.actors);
+			actors = theSituation.actorsGames(r, actors);
 		}
 		
-		Shielkwamm.processTheSituation(this, "gritas.json", gritasSituation);
-		
-		
+		theSituation.processTheSituation(r, gritasSituation);
 		
 		//~.~
 	}
@@ -206,7 +203,7 @@ p.nominalBounds = new cjs.Rectangle(-36,-80.9,174,174);
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
 	// Layer_1
-	this.instance = new lib.CachedBmp_155();
+	this.instance = new lib.CachedBmp_3();
 	this.instance.setTransform(257.25,19,0.5,0.5);
 
 	this.react = new lib.React();
@@ -218,10 +215,10 @@ p.nominalBounds = new cjs.Rectangle(-36,-80.9,174,174);
 	this.mango = new lib.Mango();
 	this.mango.setTransform(214.05,364.85,1,1,0,0,0,126.3,67);
 
-	this.instance_1 = new lib.CachedBmp_154();
+	this.instance_1 = new lib.CachedBmp_2();
 	this.instance_1.setTransform(414.5,394.05,0.5,0.5);
 
-	this.instance_2 = new lib.CachedBmp_153();
+	this.instance_2 = new lib.CachedBmp_1();
 	this.instance_2.setTransform(83,398.3,0.5,0.5);
 
 	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_2},{t:this.instance_1},{t:this.mango},{t:this.papaya},{t:this.react},{t:this.instance}]}).wait(1));
@@ -239,7 +236,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/Gritas_atlas_.png", id:"Gritas_atlas_"}
+		{src:"images/gritas_atlas_.png?1590004568898", id:"gritas_atlas_"}
 	],
 	preloads: []
 };

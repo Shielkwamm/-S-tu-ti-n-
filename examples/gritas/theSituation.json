@@ -1,0 +1,43 @@
+{
+  "actors": [{
+    "name": "mango",
+    "games": [
+      {
+        "name": "actionKeys",
+        "restingState": "0",
+        "keys": [
+          {"key": "w", "frame": "o"},
+          {"key": "a", "frame": "O"},
+          {"key": "s", "frame": "Ó"},
+          {"key": "d", "frame": "ó"},
+          {"key": "c", "frame": "e1"},
+          {"key": "v", "frame": "e2"}
+        ]
+      }
+    ]
+  }, {
+    "name": "papaya",
+    "games": [
+      {
+        "name": "actionKeys",
+        "keys": [
+          {"key": "p", "frame": "0"},
+          {"key": "ArrowUp", "frame": "o"},
+          {"key": "ArrowDown", "frame": "O"},
+          {"key": "ArrowLeft", "frame": "Ó"},
+          {"key": "ArrowRight", "frame": "ó"},
+          {"key": ".", "frame": "e1"},
+          {"key": ",", "frame": "e2"}
+        ]
+      }
+    ]
+  }, {
+    "name": "react",
+    "games": [
+      {
+        "name": "clickNext",
+        "next": "stop"
+      }
+    ]
+  }]
+}

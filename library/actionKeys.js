@@ -1,6 +1,5 @@
 theSituation.actionKeys = function(situationR, actor, game) {
   actor.keysDown = [];
-  alert(JSON.stringify(game))
   window.addEventListener("keydown", function (e) {
     var keyCode = e.key;
     for (var keyIndex in game.keys) {
