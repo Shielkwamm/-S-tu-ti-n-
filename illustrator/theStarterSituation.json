@@ -1,0 +1,40 @@
+{
+  "actors": [
+    {
+      "name": "myActor",
+      "games": [
+        {
+          "name": "reactionKeys",
+          "keys": [
+            {
+              "key": "positive",
+              "frame": "w"
+            },
+            {
+              "key": "negative",
+              "frame": "a"
+            },
+            {
+              "key": "chos",
+              "frame": "s"
+            },
+            {
+              "key": "anxious",
+              "frame": "d"
+            }
+          ],
+          "restingState": "positive"
+        }
+      ]
+    },
+    {
+      "name": "myReaction",
+      "games": [
+        {
+          "name": "clickNext",
+          "next": "stop"
+        }
+      ]
+    }
+  ]
+}
