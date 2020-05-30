@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Animate Container</title>
+    <!-- animate stuff -->
+    $CENTER_STYLE
+    <script src="https://zimjs.org/cdn/1.3.0/createjs.js"></script>
+    <script src="https://zimjs.org/cdn/10.9.0/zim.js"></script>
+    $ANIMATE_CC_SCRIPTS
+    $SCRIPT_START
+    var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+    function init(animateId) {
+      canvas = document.getElementById("$CANVAS_ID" + animateId);
+      anim_container = document.getElementById("$ANIM_CONTAINER_ID" + animateId);
+      dom_overlay_container = document.getElementById("dom_overlay_container" + animateId);
+      $CREATE_LOADER
+      $LOAD_MANIFEST
+      $PRELOAD_ASSETS
+    }
+    $HANDLE_FILE_LOAD_START	
+      $HANDLE_FILE_LOAD_BODY	
+    $HANDLE_FILE_LOAD_END
+    $HANDLE_COMPLETE_START
+      //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+      $CREATE_STAGE
+      stage = new zim.Stage(canvas);
+      stage.enableMouseOver();
+      createjs.Touch.enable(stage);
+      stageW = canvas.width;
+      stageH = canvas.height;
+      stage.setBounds(0,0,stageW,stageH);
+      frame = new zim.Frame({shim:{stage:stage, canvas:canvas}});
+      //Registers the "tick" event listener.
+      $START_ANIMATION	    
+      //Code to support hidpi screens and responsive scaling.
+      $RESP_HIDPI	
+    $HANDLE_COMPLETE_END
+    $PLAYSOUND
+    $SCRIPT_END
+    <!-- End animate stuff-->
+  </head>
+  <body style="margin:0">
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.13.1/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone@7.10.1/babel.min.js"></script>
+
+  <!-- More animate stuff -->
+  
+    $PRELOADER_DIV
+
+  <!-- animate react component -->
+  <script type="text/babel">
+    const AnimateComponent = ({ animateId }) => {
+      React.useLayoutEffect(() => {
+        init(animateId)
+      })
+      const animContainerStyle = {
+        backgroundColor: '$BG',
+        width: '$WTpx',
+        height: '$HTpx'
+      }
+      const canvasStyle = {
+        position: "absolute",
+        display: "$CANVAS_DISP",
+        backgroundColor: "$BG"
+      }
+      const domOverlayContainerStyle = {
+        pointerEvents: "none",
+        overflow: "hidden",
+        width: "$WTpx",
+        height: "$HTpx",
+        position: "absolute",
+        left: "0px",
+        top: "0px",
+        display: "$CANVAS_DISP"
+      }
+      return (
+        <div id={"$ANIM_CONTAINER_ID" + animateId} style={animContainerStyle}>
+        <canvas id={"$CANVAS_ID" + animateId} width="$WT" height="$HT" style={canvasStyle}></canvas>
+        <div id={"dom_overlay_container" + animateId} style={domOverlayContainerStyle}>
+        </div>
+      </div>
+      )
+    }
+  </script>
+  <!-- end animate react component -->
+  <script type="text/babel">
+    const wrapper = () => {
+      return (
+        <>
+          <AnimateComponent animateId="1"/>
+        </>
+      )
+    }
+    ReactDOM.render(wrapper(), document.getElementById('root'));
+    </script>
+  </body>
+</html>

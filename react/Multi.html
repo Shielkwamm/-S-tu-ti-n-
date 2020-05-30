@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Animate Container</title>
+    <!-- animate stuff -->
+    <style>
+  #animation_container {
+	position:absolute;
+	margin:auto;
+	left:0;right:0;
+	top:0;bottom:0;
+  }
+</style>
+    <script src="https://zimjs.org/cdn/1.3.0/createjs.js"></script>
+    <script src="https://zimjs.org/cdn/10.9.0/zim.js"></script>
+    <!-- End animate stuff-->
+  </head>
+  <body style="margin:0">
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.13.1/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone@7.10.1/babel.min.js"></script>
+  <!-- More animate stuff -->
+  <!-- animate react component -->
+  <script src="Multi.js"></script>
+  <script type="text/babel">
+    const AnimateComponent = ({ animateId }) => {
+      //adobe nonsense
+      var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+      function init(animateId) {
+        canvas = document.getElementById("canvas" + animateId);
+        anim_container = document.getElementById("animation_container" + animateId);
+        dom_overlay_container = document.getElementById("dom_overlay_container" + animateId);
+        var comp=AdobeAn.getComposition("C47690EF0234E046B5AF326CE0794EFD");
+        var lib=comp.getLibrary();
+        var loader = new createjs.LoadQueue(false);
+        loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+        loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+        var lib=comp.getLibrary();
+        loader.loadManifest(lib.properties.manifest);
+      }
+      function handleFileLoad(evt, comp) {
+        var images=comp.getImages();	
+        if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+      }
+      function handleComplete(evt,comp) {
+        //This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+        var lib=comp.getLibrary();
+        var ss=comp.getSpriteSheet();
+        var queue = evt.target;
+        var ssMetadata = lib.ssMetadata;
+        for(var i=0; i<ssMetadata.length; i++) {
+          ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+        }
+        exportRoot = new lib.Multi();
+        stage = new lib.Stage(canvas);
+        stage = new zim.Stage(canvas);
+        stage.enableMouseOver();
+        createjs.Touch.enable(stage);
+        var stageW = canvas.width;
+        var stageH = canvas.height;
+        stage.setBounds(0,0,stageW,stageH);
+        var frame = new zim.Frame({shim:{stage:stage, canvas:canvas}});
+        //Registers the "tick" event listener.
+        fnStartAnimation = function() {
+          stage.addChild(exportRoot);
+          createjs.Ticker.framerate = lib.properties.fps;
+          createjs.Ticker.addEventListener("tick", stage);
+        }	    
+        //Code to support hidpi screens and responsive scaling.
+        AdobeAn.makeResponsive(true,'both',true,1,[canvas,anim_container,dom_overlay_container]);	
+        AdobeAn.compositionLoaded(lib.properties.id);
+        fnStartAnimation();
+      }
+
+      /// adobe nonsense lol
+      React.useLayoutEffect(() => {
+        init(animateId)
+      })
+      const animContainerStyle = {
+        backgroundColor: 'rgba(255, 255, 255, 1.00)',
+        width: '550px',
+        height: '400px'
+      }
+      const canvasStyle = {
+        position: "absolute",
+        display: "block",
+        backgroundColor: "rgba(255, 255, 255, 1.00)"
+      }
+      const domOverlayContainerStyle = {
+        pointerEvents: "none",
+        overflow: "hidden",
+        width: "550px",
+        height: "400px",
+        position: "absolute",
+        left: "0px",
+        top: "0px",
+        display: "block"
+      }
+      return (
+        <div id={"animation_container" + animateId} style={animContainerStyle}>
+        <canvas id={"canvas" + animateId} width="550" height="400" style={canvasStyle}></canvas>
+        <div id={"dom_overlay_container" + animateId} style={domOverlayContainerStyle}>
+        </div>
+      </div>
+      )
+    }
+  </script>
+  <!-- end animate react component -->
+  <script type="text/babel">
+    const wrapper = () => {
+      return (
+        <>
+          <AnimateComponent animateId="1"/>
+        </>
+      )
+    }
+    ReactDOM.render(wrapper(), document.getElementById('root'));
+    </script>
+  </body>
+</html>
