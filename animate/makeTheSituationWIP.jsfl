@@ -1,3 +1,8 @@
+var scriptPath = FLfile.uriToPlatformPath(fl.scriptURI);
+var scriptPathEnd = scriptPath.lastIndexOf("\\");
+scriptPath = scriptPath.slice(0, scriptPathEnd + 1);
+fl.runScript(FLfile.platformPathToURI(scriptPath + "json2.js"));   
+
 //load in scene json here
 
 var timeline = fl.getDocumentDOM().getTimeline();

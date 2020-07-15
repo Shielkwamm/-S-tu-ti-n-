@@ -3,7 +3,7 @@
 var p; // shortcut to reference prototypes
 var lib={};var ss={};var img={};
 lib.ssMetadata = [
-		{name:"gritas_atlas_", frames: [[210,875,154,68],[773,816,208,68],[0,875,208,68],[0,512,549,361],[551,386,220,494],[0,0,425,510],[773,386,225,225],[773,613,210,201],[427,0,512,384]]}
+		{name:"gritas_atlas_", frames: [[773,816,208,68],[0,875,208,68],[210,875,154,68],[0,512,549,361],[551,386,220,494],[0,0,425,510],[773,386,225,225],[773,613,210,201],[427,0,512,384]]}
 ];
 
 
@@ -11,21 +11,21 @@ lib.ssMetadata = [
 
 
 
-(lib.CachedBmp_3 = function() {
+(lib.CachedBmp_8 = function() {
 	this.initialize(ss["gritas_atlas_"]);
 	this.gotoAndStop(0);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedBmp_2 = function() {
+(lib.CachedBmp_7 = function() {
 	this.initialize(ss["gritas_atlas_"]);
 	this.gotoAndStop(1);
 }).prototype = p = new cjs.Sprite();
 
 
 
-(lib.CachedBmp_1 = function() {
+(lib.CachedBmp_6 = function() {
 	this.initialize(ss["gritas_atlas_"]);
 	this.gotoAndStop(2);
 }).prototype = p = new cjs.Sprite();
@@ -117,6 +117,12 @@ p.nominalBounds = new cjs.Rectangle(-86,-1,287.9,323.6);
 	// actions tween:
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(7));
 
+	// Layer_2
+	this.instance = new lib.CachedBmp_8();
+	this.instance.setTransform(0,98.1,0.5,0.5);
+
+	this.timeline.addTween(cjs.Tween.get(this.instance).to({_off:true},1).wait(6));
+
 	// Layer_3
 	this.text = new cjs.Text("~.~", "25px 'Tahoma'");
 	this.text.textAlign = "center";
@@ -128,15 +134,15 @@ p.nominalBounds = new cjs.Rectangle(-86,-1,287.9,323.6);
 	this.timeline.addTween(cjs.Tween.get(this.text).wait(1).to({text:"~o~"},0).wait(1).to({text:"~O~"},0).wait(1).to({text:"~Ó~"},0).wait(1).to({text:"~ó~"},0).wait(1).to({text:"~☄   ~"},0).wait(1).to({text:"~☼~"},0).wait(1));
 
 	// Layer_4
-	this.instance = new lib.papayas210x201();
-	this.instance.setTransform(147.9,-53.25,0.7313,0.7313,104.9992);
+	this.instance_1 = new lib.papayas210x201();
+	this.instance_1.setTransform(147.9,-53.25,0.7313,0.7313,104.9992);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(7));
+	this.timeline.addTween(cjs.Tween.get(this.instance_1).wait(7));
 
 	this._renderFirstFrame();
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-33.8,-91.3,181.7,186.39999999999998);
+p.nominalBounds = new cjs.Rectangle(-33.8,-91.3,181.7,223.39999999999998);
 
 
 (lib.Mango = function(mode,startPosition,loop) {
@@ -161,15 +167,18 @@ p.nominalBounds = new cjs.Rectangle(-33.8,-91.3,181.7,186.39999999999998);
 	this.timeline.addTween(cjs.Tween.get(this.text).wait(1).to({text:"~o~"},0).wait(1).to({text:"~O~"},0).wait(1).to({text:"~Ó~"},0).wait(1).to({text:"~ó~"},0).wait(1).to({text:"~▲~"},0).wait(1).to({text:"~★~"},0).wait(1));
 
 	// Layer_4
-	this.instance = new lib.download();
-	this.instance.setTransform(138,-44.15,0.6316,0.6316,104.9982);
+	this.instance = new lib.CachedBmp_7();
+	this.instance.setTransform(0,111.05,0.5,0.5);
 
-	this.timeline.addTween(cjs.Tween.get(this.instance).wait(7));
+	this.instance_1 = new lib.download();
+	this.instance_1.setTransform(138,-44.15,0.6316,0.6316,104.9982);
+
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_1},{t:this.instance}]}).wait(7));
 
 	this._renderFirstFrame();
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(-36,-80.9,174,174);
+p.nominalBounds = new cjs.Rectangle(-36,-80.9,174,226);
 
 
 // stage content:
@@ -187,6 +196,7 @@ p.nominalBounds = new cjs.Rectangle(-36,-80.9,174,174);
 		}
 		stop();
 		var r = this;
+		var s = stage;
 		var actors;
 		
 		function gritasSituation(theSituationJSON) {
@@ -197,36 +207,46 @@ p.nominalBounds = new cjs.Rectangle(-36,-80.9,174,174);
 		theSituation.processTheSituation(r, gritasSituation);
 		
 		//~.~
+		
+		var mango = r.mango;
+		var papaya = r.papaya;
+		
+		/*alert(stage);
+		
+		function reportWindowSize() {
+		  mango.x = 0
+			
+			alert(r.innerWidth);
+			alert(window.innerWidth);
+			//papaya.x = window.innerWidth;
+		  //alert(window.innerHeight);
+		}
+		
+		window.onresize = reportWindowSize; */
 	}
 
 	// actions tween:
 	this.timeline.addTween(cjs.Tween.get(this).call(this.frame_0).wait(1));
 
 	// Layer_1
-	this.instance = new lib.CachedBmp_3();
+	this.instance = new lib.CachedBmp_6();
 	this.instance.setTransform(257.25,19,0.5,0.5);
 
 	this.react = new lib.React();
 	this.react.setTransform(323.2,145.15,1,1,0,0,0,76.7,93);
 
 	this.papaya = new lib.Papaya();
-	this.papaya.setTransform(470.8,304,1,1,0,0,0,54.5,-3.2);
+	this.papaya.setTransform(382.4,215.9,1,1,0,0,0,-33.9,-91.3);
 
 	this.mango = new lib.Mango();
-	this.mango.setTransform(214.05,364.85,1,1,0,0,0,126.3,67);
+	this.mango.setTransform(51.75,216.95,1,1,0,0,0,-36,-80.9);
 
-	this.instance_1 = new lib.CachedBmp_2();
-	this.instance_1.setTransform(414.5,394.05,0.5,0.5);
-
-	this.instance_2 = new lib.CachedBmp_1();
-	this.instance_2.setTransform(83,398.3,0.5,0.5);
-
-	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.instance_2},{t:this.instance_1},{t:this.mango},{t:this.papaya},{t:this.react},{t:this.instance}]}).wait(1));
+	this.timeline.addTween(cjs.Tween.get({}).to({state:[{t:this.mango},{t:this.papaya},{t:this.react},{t:this.instance}]}).wait(1));
 
 	this._renderFirstFrame();
 
 }).prototype = p = new cjs.MovieClip();
-p.nominalBounds = new cjs.Rectangle(371.8,259,192.40000000000003,173.3);
+p.nominalBounds = new cjs.Rectangle(371.8,259,192.40000000000003,183.89999999999998);
 // library properties:
 lib.properties = {
 	id: 'B4CDAA137F8D62479147E3885B6B7301',
@@ -236,7 +256,7 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/gritas_atlas_.png?1590004568898", id:"gritas_atlas_"}
+		{src:"images/gritas_atlas_.png?1590007035589", id:"gritas_atlas_"}
 	],
 	preloads: []
 };
