@@ -21,7 +21,7 @@
   }
 </style>
 <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
-<script src="Team.js?1590005150091"></script>
+<script src="Team.js"></script>
 <script type='text/javascript' src='https://shielkwamm.net/library/theSituation.js'></script>
 <script>
 var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
@@ -62,7 +62,7 @@ function handleComplete(evt,comp) {
 		createjs.Ticker.addEventListener("tick", stage);
 	}	    
 	//Code to support hidpi screens and responsive scaling.
-	AdobeAn.makeResponsive(true,'width',true,1,[canvas,preloaderDiv,anim_container,dom_overlay_container]);	
+	AdobeAn.makeResponsive(false,'both',false,1,[canvas,preloaderDiv,anim_container,dom_overlay_container]);	
 	AdobeAn.compositionLoaded(lib.properties.id);
 	fnStartAnimation();
 }
@@ -70,11 +70,21 @@ function handleComplete(evt,comp) {
 <!-- write your code here -->
 </head>
 <body onload="init();" style="margin:0px;">
-	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:640px; height:480px">
-		<canvas id="canvas" width="640" height="480" style="position: absolute; display: none; background-color:rgba(255, 255, 255, 1.00);"></canvas>
-		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:640px; height:480px; position: absolute; left: 0px; top: 0px; display: none;">
+	<style>
+		.non-resize-container {
+			width: 100% !important;
+			height: 100% !important;
+		}
+		.non-resize-canvas {
+			width: 100% !important;
+			height: 100% !important;
+		}
+	</style>
+	<div class="non-resize-container" id="animation_container" style="background-color:#000; width:100%; height:100%">
+		<canvas class="non-resize-canvas" id="canvas" width="100%" height="100%" style="width: 100% !important; height:100% !important;position: absolute; display: none; background-color:rgba(255, 255, 255, 1.00);object-fit:none;"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:100% !important; height:100% !important; position: absolute; left: 0px; top: 0px; display: none;">
 		</div>
 	</div>
-    <div id='_preload_div_' style='position:absolute; top:0; left:0; display: inline-block; height:480px; width: 640px; text-align: center;'>	<span style='display: inline-block; height: 100%; vertical-align: middle;'></span>	<img src=images/_preloader.gif?1590005150092 style='vertical-align: middle; max-height: 100%'/></div>
+    <div id='_preload_div_' style='position:absolute; top:0; left:0; display: inline-block; height:480px; width: 640px; text-align: center;'>	<span style='display: inline-block; height: 100%; vertical-align: middle;'></span>	<img src=images/_preloader.gif style='vertical-align: middle; max-height: 100%'/></div>
 </body>
 </html>
